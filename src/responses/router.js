@@ -15,6 +15,7 @@ const router = {
   },
 
   voiceControl: async user => {
+    // TODO : Clean up this method, can definitely be better.
     if (!user.bot) {
       const members = Array.from(user.guild.members)
       const memberCount = user.guild.memberCount - 1
