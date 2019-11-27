@@ -8,7 +8,7 @@ const setUserUnmute = require("./queries/setUserUnmute")
 const getUser = require("./queries/getUser")
 
 module.exports = {
-  getPhrase:    phrase => tryCatch(getPhrase, [phrase], ''),
+  getPhrase: phrase => tryCatch(getPhrase, [phrase], ''),
   createPhrase: message => tryCatch(createPhrase, [message]),
   deletePhrase: phrase => tryCatch(deletePhrase, [phrase]),
   getAllPhrases: _ => tryCatch(getAllPhrases, []),

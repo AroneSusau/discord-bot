@@ -1,4 +1,4 @@
-const options = require('./db')
+const db = require('./db')
 const commands = require('./commands')
 const parser = require('discord-command-parser')
 
@@ -20,7 +20,7 @@ const getText = message => {
  */
 const containsPhrase = async message => {
   if (message.content[0] != '+') {
-    return await options.getPhrase(getText(message))
+    return await db.getPhrase(getText(message))
   } else return ''
 }
 

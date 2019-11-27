@@ -7,7 +7,7 @@ const query = require("./query")
  * @returns {String} Outcome message for creating new Phrase.
  */
 const createPhrase = async message => {
-  const str = `INSERT INTO Phrases VALUES (NULL, '${message.phrase}', '${message.response}', '${message.user}')`
+  const str = `INSERT INTO Phrases VALUES (NULL, '${message.phrase}', '${message.response}', '${message.author}')`
   const res = `New response created: ${message.phrase} -> ${message.response}`
   await query(str)
   return res
