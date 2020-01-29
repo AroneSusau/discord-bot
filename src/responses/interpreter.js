@@ -53,6 +53,7 @@ const checkCommand = async message => {
         case 'unmute': return commands.unmute(parsed, message)
         case 'list':   return commands.list()
         case 'help':   return commands.help()
+        case 'fut' :   return message.react('🤔')
         default:       return 'Invalid command, command does not exist.'
       }
     } else return 'Invalid command, invalid syntax.'

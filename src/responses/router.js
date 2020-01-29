@@ -3,14 +3,15 @@ const db = require('./db')
 
 const execute = async (fn, input, ttsCheck) => {
   const result = await fn(input)
-  if (result) input.reply(result, { tts: ttsCheck })
+  if (result && typeof result == "string")
+    input.reply(result, { tts: ttsCheck })
 }
 
 const router = {
   reply: input => {
+    execute(interpreter.checkOtherBot, input, true)
     if (!input.author.bot) {
       execute(interpreter.containsPhrase, input, true)
-      execute(interpreter.checkOtherBot, input, true)
       execute(interpreter.checkCommand, input, false)
     }
   },
