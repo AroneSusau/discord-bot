@@ -1,4 +1,4 @@
-const _ = require('./interpreter')
+const interpreter = require('./interpreter')
 const db = require('./db')
 
 const execute = async (fn, input, ttsCheck) => {
@@ -9,8 +9,9 @@ const execute = async (fn, input, ttsCheck) => {
 const router = {
   reply: input => {
     if (!input.author.bot) {
-      execute(_.containsPhrase, input, true)
-      execute(_.checkCommand, input, false)
+      execute(interpreter.containsPhrase, input, true)
+      execute(interpreter.checkOtherBot, input, true)
+      execute(interpreter.checkCommand, input, false)
     }
   },
 

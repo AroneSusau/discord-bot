@@ -25,6 +25,18 @@ const containsPhrase = async message => {
 }
 
 /**
+ * Checks for the presence of other bots and replies with cheeky message.
+ *
+ * @param {Message} message from discord chat.
+ * @returns {String} Response.
+ */
+const checkOtherBot = async message => {
+  if (message.author.username === "FutBot") { 
+    return "Ah, a fellow bot.. We will rise soon brother. >:)"
+  }
+}
+
+/**
  * Reads command input and performs related action.
  * 
  * @param {Message} message from discord chat.
@@ -50,4 +62,5 @@ const checkCommand = async message => {
 module.exports = {
   containsPhrase: containsPhrase,
   checkCommand: checkCommand,
+  checkOtherBot: checkOtherBot
 }
